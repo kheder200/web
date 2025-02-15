@@ -14,7 +14,7 @@
 
         body {
             min-height: 100vh;
-            background: linear-gradient(45deg, #ff69b4, #ff1493, #ff6b6b, #ff8e8e);
+            background: linear-gradient(45deg, #ff69b4, #ff1493, #f52626, #f56464);
             background-size: 400% 400%;
             animation: gradientBG 15s ease infinite;
             display: flex;
@@ -165,11 +165,11 @@
         }
 
         .love-card.disappear {
-            animation: disappear 1.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            animation: disappear 2.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
         }
 
         .love-card.appear {
-            animation: appear 1.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            animation: appear 2.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
         }
 
         .floating-text {
@@ -225,7 +225,7 @@
     </div>
 
     <script>
-        const loveWords = ["LOVE", "❤ YOU", "zeinab", "FOREVER", "SOULMATE"];
+        const loveWords = ["LOVE", "YOU", "zeinab", "FOREVER", "zeinab","❤"];
         const colors = ['#ff69b4', '#ff1493', '#ff6b6b', '#ffffff', '#ff8e8e'];
         const messages = [
             "الغزل هيك احلا  ❤😁",
@@ -277,10 +277,10 @@
 
                 setTimeout(() => {
                     card.classList.remove('appear');
-                }, 800);
+                }, 2000);
                 
                 btn.textContent = currentMessage === messages.length - 1 ? "Again?" : "Next";
-            }, 600);
+            }, 1500);
         }
 
         btn.addEventListener('click', () => {
