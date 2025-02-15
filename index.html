@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Love ??</title>
+    <title>all love for you ❤</title>
     <style>
         * {
             margin: 0;
@@ -49,7 +49,7 @@
         }
 
         .love-card.active {
-            transform: rotate(2deg);
+            transform: rotate(5deg);
             animation: heartbeat 1.5s ease-in-out;
         }
 
@@ -248,14 +248,14 @@
     <div class="hearts" id="hearts"></div>
     <div class="container">
         <div class="love-card" id="loveCard">
-            <h1>?? My Eternal Love ??</h1>
+            <h1>🤍 رفيقة أيامي ❤</h1>
             <div class="message" id="message">Click Start to Begin Our Adventure</div>
         </div>
         <button id="actionBtn">Start</button>
     </div>
 
     <script>
-       const loveWords = ["LOVE", "YOU", "BABY", "KISS", "HUG", "US", "FOREVER", "SOULMATE"];
+       const loveWords = ["LOVE", "❤ YOU", "zeinab", "FOREVER", "SOULMATE"];
         const colors = ['#ff69b4', '#ff1493', '#ff6b6b', '#ffffff', '#ff8e8e'];
 
         function createFloatingText() {
@@ -271,16 +271,12 @@
             setTimeout(() => text.remove(), 8000);
         }
         const messages = [
-            "Every moment with you sparkles like stardust ?",
-            "Your love is my greatest treasure ??",
-            "In your arms is where I belong ??",
-            "You're my today and all my tomorrows ??",
-            "My soul recognizes yours as home ??",
-            "You make my world infinitely brighter ??",
-            "Forever isn't long enough with you ?",
-            "Your love is my favorite adventure ??",
-            "With you, every day is Valentine's ??",
-            "You're my always and forever ??"
+        "الغزل هيك احلا  ❤😁",
+            "You're my today and all my tomorrows ",
+            "You make my world infinitely brighter ",
+            "Forever isn't long enough with you ",
+            "With you, every day is Valentine's ",
+            "You're my always and forever "
         ];
 
         const btn = document.getElementById('actionBtn');
@@ -323,24 +319,20 @@
             } else {
                 showNextMessage();
             }
-             // Create floating words
             for(let i = 0; i < 3; i++) {
                 setTimeout(createFloatingText, i * 200);
             }
             
-            // Create heart explosion
             for(let i = 0; i < 7; i++) {
                 setTimeout(createHeart, i * 50);
             }
         });
 
-        // Continuous heart rain
         setInterval(createHeart, 150);
         
-        // Create random floating words continuously
         setInterval(() => {
             if(Math.random() < 0.3) createFloatingText();
-        }, 2000);
+        }, 1500);
     </script>
 </body>
 </html>
