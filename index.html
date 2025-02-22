@@ -3,307 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>all love for you ❤</title>
+    <title>Angry Message</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', cursive;
-        }
-
-        body {
-            min-height: 100vh;
-            background: linear-gradient(45deg, #ff69b4, #ff1493, #f52626, #f56464);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            overflow: hidden;
-        }
-
-        .container {
-            position: relative;
-            width: 100%;
-            max-width: 400px;
-            z-index: 2;
-        }
-
-        .love-card {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            padding: 30px;
-            margin-top: -30px;
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            text-align: center;
-            transform: rotate(-2deg);
-            transition: all 0.3s ease;
-            min-height: 250px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            transform-style: preserve-3d;
-        }
-
-        h1 {
-            color: #fff;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-            margin-bottom: 20px;
-            font-size: 2.2em;
-            letter-spacing: 2px;
-        }
-
-        .message {
-            font-size: 1.2em;
-            color: #fff;
-            line-height: 1.5;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            min-height: 80px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        }
-
-        .message.active {
-            opacity: 1;
-        }
-
-        button {
-            background: linear-gradient(45deg, #ff69b4, #ff1493);
-            color: #fff;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 25px;
-            font-size: 1.2em;
-            cursor: pointer;
-            margin-top: 20px;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            position: relative;
-            overflow: hidden;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-        }
-
-        button:hover {
-            transform: scale(1.05) translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .hearts {
-            position: fixed;
-            width: 100%;
+        body, html {
             height: 100%;
-            pointer-events: none;
-            z-index: 1;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+            font-family: Arial, sans-serif;
         }
 
-        .heart {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            animation: float 4s ease-in infinite;
-            opacity: 0;
-        }
-
-        .heart::before,
-        .heart::after {
-            content: '';
-            position: absolute;
-            width: 10px;
-            height: 16px;
-            background: #ff69b4;
-            border-radius: 10px 10px 0 0;
-            transform-origin: bottom;
-        }
-
-        .heart::before {
-            left: 10px;
-            transform: rotate(-45deg);
-        }
-
-        .heart::after {
-            left: 0;
-            transform: rotate(45deg);
-        }
-
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        @keyframes float {
-            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-            50% { opacity: 0.8; }
-            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
-        }
-
-        @keyframes disappear {
-            from {
-                transform: rotate(-2deg) scale(1);
-                opacity: 1;
-            }
-            to {
-                transform: rotate(360deg) scale(0);
-                opacity: 0;
-            }
-        }
-
-        @keyframes appear {
-            from {
-                transform: rotate(-360deg) scale(0);
-                opacity: 0;
-            }
-            to {
-                transform: rotate(-2deg) scale(1);
-                opacity: 1;
-            }
-        }
-
-        .love-card.disappear {
-            animation: disappear 2.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-        }
-
-        .love-card.appear {
-            animation: appear 2.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-        }
-
-        .floating-text {
-            position: fixed;
-            font-size: 1.2em;
+        .angry-text {
+            font-size: 5rem;
             font-weight: bold;
-            animation: floatText 8s linear infinite;
-            opacity: 0;
-            pointer-events: none;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            color: red;
+            text-align: center;
+            animation: shake 0.5s infinite;
         }
 
-        @keyframes floatText {
-            0% {
-                transform: translateY(100vh) rotate(-10deg);
-                opacity: 0;
-            }
-            20% {
-                opacity: 1;
-                transform: translateY(80vh) rotate(-5deg);
-            }
-            80% {
-                opacity: 1;
-                transform: translateY(20vh) rotate(5deg);
-            }
-            100% {
-                transform: translateY(-20vh) rotate(10deg);
-                opacity: 0;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .love-card {
-                padding: 20px;
-            }
-            h1 {
-                font-size: 1.8em;
-            }
-            .message {
-                font-size: 1em;
-            }
+        @keyframes shake {
+            0% { transform: translate(0, 0); }
+            10% { transform: translate(-10px, 0); }
+            20% { transform: translate(10px, 0); }
+            30% { transform: translate(-10px, 0); }
+            40% { transform: translate(10px, 0); }
+            50% { transform: translate(-10px, 0); }
+            60% { transform: translate(10px, 0); }
+            70% { transform: translate(-10px, 0); }
+            80% { transform: translate(10px, 0); }
+            90% { transform: translate(-10px, 0); }
+            100% { transform: translate(0, 0); }
         }
     </style>
 </head>
 <body>
-    <div class="hearts" id="hearts"></div>
-    <div class="container">
-        <div class="love-card" id="loveCard">
-            <h1>❤ رفيقة أيامي ❤</h1>
-            <div class="message" id="message">Click Start to Begin Our Adventure</div>
-        </div>
-        <button id="actionBtn">Start</button>
-    </div>
-
-    <script>
-        const loveWords = ["LOVE", "YOU", "zeinab", "FOREVER", "zeinab","❤"];
-        const colors = ['#ff69b4', '#ff1493', '#ff6b6b', '#ffffff', '#ff8e8e'];
-        const messages = [
-            "الغزل هيك احلا  ❤😁",
-            "You're my today and all my tomorrows",
-            "You make my world infinitely brighter",
-            "Forever isn't long enough with you",
-            "With you, every day is Valentine's",
-            "You're my always and forever"
-        ];
-
-        const btn = document.getElementById('actionBtn');
-        const messageEl = document.getElementById('message');
-        const card = document.getElementById('loveCard');
-        let currentMessage = -1;
-
-        function createFloatingText() {
-            const text = document.createElement('div');
-            text.className = 'floating-text';
-            text.textContent = loveWords[Math.floor(Math.random() * loveWords.length)];
-            text.style.left = Math.random() * 100 + '%';
-            text.style.color = colors[Math.floor(Math.random() * colors.length)];
-            text.style.animationDuration = (Math.random() * 3 + 5) + 's';
-            text.style.fontSize = (Math.random() * 20 + 20) + 'px';
-            document.body.appendChild(text);
-            
-            setTimeout(() => text.remove(), 8000);
-        }
-
-        function createHeart() {
-            const heart = document.createElement('div');
-            heart.className = 'heart';
-            heart.style.left = Math.random() * 100 + '%';
-            heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
-            document.getElementById('hearts').appendChild(heart);
-            
-            setTimeout(() => heart.remove(), 4000);
-        }
-
-        function animateCard() {
-            card.classList.add('disappear');
-            messageEl.classList.remove('active');
-
-            setTimeout(() => {
-                card.classList.remove('disappear');
-                currentMessage = (currentMessage + 1) % messages.length;
-                messageEl.textContent = messages[currentMessage];
-                card.classList.add('appear');
-                messageEl.classList.add('active');
-
-                setTimeout(() => {
-                    card.classList.remove('appear');
-                }, 2000);
-                
-                btn.textContent = currentMessage === messages.length - 1 ? "Again?" : "Next";
-            }, 1500);
-        }
-
-        btn.addEventListener('click', () => {
-            if(currentMessage === -1) {
-                btn.textContent = "Next";
-                currentMessage = 0;
-            }
-            
-            animateCard();
-            
-            for(let i = 0; i < 3; i++) {
-                setTimeout(createFloatingText, i * 200);
-            }
-            
-            for(let i = 0; i < 7; i++) {
-                setTimeout(createHeart, i * 50);
-            }
-        });
-
-        setInterval(createHeart, 150);
-        setInterval(() => {
-            if(Math.random() < 0.3) createFloatingText();
-        }, 1500);
-    </script>
+    <div class="angry-text">Not any more!</div>
 </body>
 </html>
